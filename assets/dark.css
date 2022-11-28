@@ -1,0 +1,10 @@
+/* MediaDev (Pascal LLEONART, Thomas HEMON & Melvyn JEAN-PIERRE) */
+
+html{
+    --bs-body-color: #fff !important;
+    --bs-body-bg: #212529 !important;
+}
+
+.btn-close{
+    color: #fff !important;
+}

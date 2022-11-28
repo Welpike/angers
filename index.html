@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=., initial-scale=1.0">
+    <title>Angers Smart city - Angers Loire Métropole</title>
+    <link rel="shortcut icon" href="media/img/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="assets/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body class="position-relative">
+
+    <noscript class="position-fixed w-100 h-100 bg-light d-flex align-items-center justify-content-center flex-column">
+        <p>Ce site a besoin de la technologie JavaScript pour fonctionner. <br> Et visiblement, vous avez empêché ce site d'utiliser cette fonctionnalité dans les paramètres de votre navgateur. <br> Veuillez le réactiver.</p>
+        <a href="index.html">Actualisation</a>
+        <p class="text-muted mt-3">Pour activer le JavaScript :</p>
+        <ol class="text-start">
+            <li>Accédez aux paramètres de site</li>
+            <li>Mettez la case "JavaScript" sur "Autoriser"</li>
+            <li>Retournez sur cette page et actualisez</li>
+        </ol>
+    </noscript>
+
+    <div id="preloader">
+        <h3>Angers Loire Métropole</h3>
+        <div class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="chat-box" class="position-fixed">
+        <div id="chat-box-container" class="card text-center d-none">
+            <div class="card-header text-bg-theme">
+                Chattez avec nous !
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Vous pouvez nous contacter au <a href="tel:+0241055000">02 41 05 50 00</a> ou à <a href="mailto:infocom@ville.angers.fr">infocom@ville.angers.fr</a></p>
+            </div>
+            <div class="card-footer text-muted text-bg-theme">
+                Cette fonctionnalité n'est pas disponible pour le moment.
+            </div>
+        </div>
+        <div id="chat-box-btn" class="rounded-5 bg-theme" title="Chattez avec nous !">
+            <i class="bi bi-chat-right"></i>
+        </div>
+    </div>
+
+    <a id="scroll-top" href="#top" class="position-fixed rounded-5 bg-theme d-none" title="Revenir en haut"><i class="bi bi-arrow-up"></i></a>
+
+    <div id="video-popup" class="modal fade" tabindex="-1" aria-labelledby="video-popup-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="video-popup-label">Angers, la ville de vos rêves</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video controls>
+                        <source src="media/video/landing.mp4" type="video/mp4">
+                    
+                        Download the <a href="media/video/landing.mp4">MP4</a> video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="open-source-popup" class="modal fade" tabindex="-1" aria-labelledby="open-source-popup-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="open-source-popup-label">Composants open-source</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>bootstrap5.2.0 - <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">https://getbootstrap.com/</a> - MIT license</li>
+                        <li>bootstrap-icons1.8.3 - <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">https://icons.getbootstrap.com/</a> - MIT license</li>
+                        <li>popperjs2.11.5 - <a href="https://popper.js.org/" target="_blank" rel="noopener noreferrer">https://popper.js.org/</a> - MIT license</li>
+                        <li>Source Sans Pro - <a href="https://github.com/pauldhunt/SourceSans" target="_blank" rel="noopener noreferrer">https://github.com/pauldhunt/SourceSans</a> - SIL Open Font License, Version 1.1 - via <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">https://fonts.google.com/</a></li>
+                        <li>dark-mode-toggle0.14.2 - <a href="https://googlechromelabs.github.io/dark-mode-toggle/" target="_blank" rel="noopener noreferrer">https://googlechromelabs.github.io/dark-mode-toggle/</a> - Apache License, Version 2.0</li>
+                    </ul>
+                    <h3>CDNs</h3>
+                    <ul>
+                        <li>JsDelivr - <a href="https://jsdelivr.com/" target="_blank" rel="noopener noreferrer">https://jsdelivr.com/</a></li>
+                        <li>UNPKG - <a href="https://unpkg.com/" target="_blank" rel="noopener noreferrer">https://unpkg.com/</a></li>
+                    </ul>
+                    <p>N.B : ces CDNs sont des projets open-source.</p>
+                    <h3>APIs</h3>
+                    <ul>
+                        <li>Google Maps Embed API <a href="https://developers.google.com/maps/documentation/embed/get-started" target="_blank" rel="noopener noreferrer">https://developers.google.com/maps/documentation/embed/get-started</a> - <a href="https://cloud.google.com/maps-platform/terms/?_ga=2.205858835.188047560.1665730888-130984977.1663875031#3-license" target="_blank" rel="noopener noreferrer">Terms</a></li>
+                    </ul>
+                    <h3>Langages</h3>
+                    <ul>
+                        <li>HTML5.2</li>
+                        <li>CSS3</li>
+                        <li>JavaScript13 - ECMA-262</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card position-fixed m-2" id="cookie-modal" style="bottom:0;z-index:100;">
+        <div class="card-body d-flex align-items-center gap-4 position-relative">
+            <h3>À propos des cookies</h3>
+            <div class="w-50 ms-2">
+                Ce site utilise des cookies afin d'assurer son bon fonctionnement technique ainsi qu'à des fins de statistiques et de mesure d'audience. Pour davantage d'informations ou pour reconsidérer votre choix, rendez-vous sur la rubrique « Cookies » de la page <a href="https://www.angersloiremetropole.fr/mentions-legales/traitement-des-donnees-personnelles/index.html#c197078">mentions légales</a>.
+            </div>
+            <div class="d-flex align-items-center gap-4 position-absolute" style="right:20px;">
+                <button type="button" class="btn btn-secondary" onclick="acceptCookieConsent();">Refuser</button>
+                <button type="button" class="btn btn-primary" onclick="acceptCookies();">Accepter</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-dark bg-theme fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Angers Loire Métropole</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-theme" tabindex="-1" id="navbar" aria-labelledby="navbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="navbarLabel">Angers Loire Métropole</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <dark-mode-toggle id="dark-mode-toggle-1" appearance="toggle" dark="Mode sombre" light="Mode lumineux" remember="Se souvenir de mon choix"></dark-mode-toggle>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Accueil
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-theme">
+                                <li><a class="dropdown-item" href="#activities">Activités</a></li>
+                                <li><a class="dropdown-item" href="#sports">Sport</a></li>
+                                <li><a class="dropdown-item" href="#studying">Etudes</a></li>
+                                <li><a class="dropdown-item" href="#education">Lycées</a></li>
+                                <li><a class="dropdown-item" href="#youtubers">YouTubers</a></li>
+                                <li><a class="dropdown-item" href="#enterprises">Entreprises</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#open-source-popup">
+                                Composants open-source
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-2" role="search" action="https://www.angers.fr/moteur-de-recherche/index.html" method="get">
+                        <input class="form-control me-2" type="search" name="tx_algolia_plug1[search][q]" placeholder="Rechercher" aria-label="Search">
+                        <button class="btn btn-dark" type="submit"><i class="bi bi-search" title="Rechercher"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="top"></div>
+
+    <div class="cover">
+        <img src="media/img/cover-2.jpg" class="w-100 h-100">
+        <div class="cover-content gap-4 position-absolute hidden hidden-y">
+            <div class="cover-inner p-5 rounded-3">
+                <h3>Angers Smart city</h3>
+                <p>Angers, la ville que vous risquez d'<span class="text-decoration-underline" style="font-weight: 600;">aimer</span>... (on vous aura prévenu.e)</p>
+                <a class="text-theme p-0" type="button" data-bs-toggle="modal" data-bs-target="#video-popup" title="Voir la vidéo">
+                    <i class="bi bi-play" style="font-size: 32px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="activities" class="activity-section type-1 d-flex">
+        <div class="type-1-img d-flex align-content-center justify-content-center">
+            <img src="media/img/festivals.jpg" alt="Les Festivals d'Angers" style="width: 50%;">
+        </div>
+        <div class="type-1-text text-bg-theme">
+            <h3>Angers, une ville <span class="text-decoration-underline" style="font-weight: 600;">active</span></h3>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; Découvrez où sortir à Angers avec l'agenda des concerts à Angers. En fin d'année, ne manquez pas le programme du Marché de Noël d'Angers, événement familial incontournable de la ville.
+            </p>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; Des festivals ont lieu chaque année à Angers ! Notamment les <a href="https://www.angers.fr/vivre-a-angers/culture/arts-de-la-rue-arts-du-cirque/accroche-coeurs/index.html" target="_blank" rel="noopener noreferrer">Accroches-coeurs</a> et <a href="https://www.angers.fr/vivre-a-angers/culture/musique/tempo2rives/index.html" target="_blank" rel="noopener noreferrer">Tempo2Rives</a>. Ou encore le festival <a href="https://www.premiersplans.org/" target="_blank" rel="noopener noreferrer">Premiers plans d'Angers</a> et les <a href="https://www.angers.fr/vivre-a-angers/culture/arts-graphiques-et-visuels/echappees-d-art/index.html" target="_blank" rel="noopener noreferrer">Echappées d'art</a>.
+                N'oublions pas la <a href="https://www.angers.fr/vivre-a-angers/culture/musique/fete-de-la-musique/index.html" target="_blank" rel="noopener noreferrer">fête de la musique</a> !
+            </p>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; Pour sortir en famille à Angers parcourez la liste des idées de sorties pour trouver un spectacle jeune public ou visiter un musée à Angers <a href="https://www.angers.fr/actualites-sorties/agenda/index.html" target="_blank" rel="noopener noreferrer">ici</a> !</p>
+            </p>
+            <a href="https://49.agendaculturel.fr/concert/angers/" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-more-info"><span>Plus d'informations</span><span class="ms-2">>></span></a>
+        </div>
+    </div>
+
+    <div id="places" class="places-section container d-flex align-items-center justify-content-between py-5 hidden">
+        <div class="places-image">
+            <img src="media/img/chateau-angers.jpg" alt="Le château d'Angers" style="width: 500px;">
+            <p class="text-muted">Le château d'Angers</p>
+        </div>
+        <div class="places-text">
+            <h3><span class="text-decoration-underline">Lieux</span> à visiter</h3>
+            <br>
+            <p>Nous vous avons préparé une liste des choses incontournables à faire à Angers.</p>
+            <ol>
+                <li>Le <a href="https://www.chateau-angers.fr/" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Château d'Angers</a> et la <a href="https://www.chateau-angers.fr/Explorer/La-Tapisserie-de-l-Apocalypse2/La-Tapisserie-de-l-Apocalypse" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Tapisserie de l'Apocalypse</a>.</li>
+                <li>Le parc <a href="https://terrabotanica.fr/" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Terra Botanica</a></li>
+                <li>Le Musée des <a href="https://musees.angers.fr/lieux/musee-des-beaux-arts/index.html" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Beaux-Arts</a></li>
+                <li>Le Musée <a href="https://musees.angers.fr/lieux/musee-jean-lurcat-et-de-la-tapisserie-contemporaine/index.html" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Jean-Lurçat</a></li>
+                <li>Le <a href="https://www.anjou-tourisme.com/fr/diffusio/visites/jardin-des-plantes-angers_TFOPCUUJPLANTES" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Jardin des Plantes</a></li>
+                <li>Le Musée <a href="https://musees.angers.fr/lieux/musee-pince/index.html" target="_blank" rel="noopener noreferrer"" style="color: var(--bs-body-color);">Pincé</a></li>
+                <li>La Cathédrale <a href="https://www.anjou-tourisme.com/fr/diffusio/visites/cathedrale-saint-maurice-angers_TFOPCUUCATHEDRALE" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">St-Maurice d'Angers</a></li>
+                <li>Le Musée du <a href="https://www.musee-du-genie-angers.fr/" target="_blank" rel="noopener noreferrer" style="color: var(--bs-body-color);">Génie</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="map" class="map-section container d-flex align-items-center justify-content-between py-5 hidden hidden-x-right">
+        <div class="map-text">
+            <h3><span class="text-decoration-underline" style="font-weight: 600;">Où</span> est Angers ?</h3>
+            <br>
+            <p>Angers est située dans l'ouest de la France. Elle est située à proximité de l'embouchure de la plus petite rivière de France, la Maine (7km), et du plus grand fleuve de France, la Loire.</p>
+            <p>Angers est située au carefour entre Nantes, Rennes, Le Mans, Poitiers, La Roche-sur-Yon. Elle est le carefour entre la Bretagne, la Nouvelle-Aquitaine et du Centre-Val de Loire.</p>
+            <p>Angers est un hub routier et ferroviaire important. La ville est située à 1h30 de TGV de Paris, à 41 minutes de Nantes en TER, à 1h37 de Rennes en TER, 1h de Tours en TER. Elle est le carefour entre les autoroutes A11 et A87.</p>
+            <a href="https://www.google.com/maps/dir//Angers/@47.9079675,0.2131942,6z/data=!4m17!1m7!3m6!1s0x480878da00e58e9d:0x40d37521e0d9c30!2sAngers!3b1!8m2!3d47.4711616!4d-0.5518257!4m8!1m0!1m5!1m1!1s0x480878da00e58e9d:0x40d37521e0d9c30!2m2!1d-0.5518257!2d47.4711616!3e0?hl=fr" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-more-info"><span>Aller à Angers</span><span class="ms-2">>></span></a>
+        </div>
+        <div class="map-iframe">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11046758.099207629!2d-0.5518257185779664!3d47.47116163047333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480878da00e58e9d%3A0x40d37521e0d9c30!2sAngers!5e0!3m2!1sfr!2sfr!4v1665566928740!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="text-center text-muted">Google Maps est une marque déposée de Google, LLC.</p>
+        <p class="text-center text-muted">L'inscrustation de Google Maps sur une page occasionne l'installation de cookies de <a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #6c757d;">www.google.com</a>.</p>
+    </div>
+
+    <!-- view_video.php?viewkey=ph629128387ce75 view_video.php?viewkey=ph6274d92a48eb2 -->
+
+    <!-- onscroll animations : https://youtu.be/T33NN_pPeNI?t=229 -->
+
+    <!-- custom time of animations with : --onscroll-animation-delay (default : 1.5s) -->
+
+    <div id="sports" class="sports-section container d-flex flex-column py-5 hidden">
+        <div class="container py-3">
+            <h3 class="text-center">Angers, une ville <span class="text-decoration-underline">sportive</span></h3>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="sport-item col-lg-6 col-md-6 col-12 p-4">
+                <img src="media/img/velo.jpg" alt="2ème ville de France du baromètre des villes cyclables" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>2ème ville de France</h3>
+                    <p>du baromètre des villes cyclables de la Fédération française des usagers de la bicyclette (2020)</p>
+                </div>
+            </div>
+            <div class="sport-item col-lg-6 col-md-6 col-12 p-4">
+                <img src="media/img/tout-angers-bouge.jpg" alt="Tout Angers Bouge" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>6 équipes sportives professionnelles</h3>
+                    <p><a href="https://www.angers-sco.fr/" target="_blank" rel="noopener noreferrer">Angers SCO</a> (football), <a href="https://ufab49.com/" target="_blank" rel="noopener noreferrer">UFAB</a>, <a href="https://www.lesducsdangers.fr/" target="_blank" rel="noopener noreferrer">Les Ducs d’Angers</a> (hockey sur glace), <a href="https://www.etoile-angers-basket.com/" target="_blank" rel="noopener noreferrer">EAB</a>, <a href="https://www.lesloupsdangers.fr/" target="_blank" rel="noopener noreferrer">Les Loups d’Angers</a>, <a href="https://handball.angers-sco.fr/" target="_blank" rel="noopener noreferrer">Angers SCO Handball</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="sport-item col-lg-3 col-md-6 col-12 p-4">
+                <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                    <img src="media/img/angers-sco-association.png" alt="Handisport" class="w-100 h-75">
+                </div>
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>275</h3>
+                    <p>associations sportives</p>
+                </div>
+            </div>
+            <div class="sport-item col-lg-9 col-md-6 col-12 p-4">
+                <img src="media/img/iceparc.jpg" alt="Angers Iceparc" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>383 installations sportives</h3>
+                    <p>1 boulodrome, 1 base d’aviron, 1 patinoire Olympique, 1 vélodrome, 1 bassin de 50m ...</p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="sport-item col-lg-4 col-md-6 col-12 p-4">
+                <img src="media/img/sportifs.jpg" alt="Coureurs" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>89</h3>
+                    <p>disciplines</p>
+                </div>
+            </div>
+            <div class="sport-item col-lg-4 col-md-6 col-12 p-4">
+                <img src="media/img/benevoles.jpg" alt="Bénévoles" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>3 500</h3>
+                    <p>bénévoles</p>
+                </div>
+            </div>
+            <div class="sport-item col-lg-4 col-md-6 col-12 p-4">
+                <img src="media/img/aquavita.webp" alt="AquaVita" class="w-100 h-100">
+                <div class="sport-item-inner position-absolute text-center">
+                    <h3>Piscines & AquaVita</h3>
+                    <p>5 piscines dont 1 centre aqualudique : <a href="https://angers.fr/aquavita" target="_blank" rel="noopener noreferrer">AquaVita</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="studying" class="study-section type-1 d-flex">
+        <div class="type-1-img">
+            <img src="media/img/eseo.jpg" alt="Campus ESEO" style="width: 75%;">
+            <p class="text-muted">Campus de l'ESEO</p>
+        </div>
+        <div class="type-1-text text-bg-theme">
+            <h3>Angers, une ville <span class="text-decoration-underline" style="font-weight: 600;">étudiante</span></h3>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; L’<a href="https://www.univ-angers.fr/fr/index.html" target="_blank">Université d'Angers</a> est une université française située à Angers et fondée en 1337. Elle est divisée en huit unités de formation et de recherche et regroupe deux instituts de formation pour un total 26 674 étudiants en 2020.
+            </p>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; L’<a href="https://moncampus.ifag.com/campus-angers/" target="_blank">École supérieure des sciences commerciales d'Angers</a> est une école de commerce privée française. Fondée à Angers en 1909, l'école possède des campus à Paris, Aix-en-Provence, Lyon, Bordeaux, Cholet, Strasbourg, Budapest et Shanghai.
+            </p>
+            <p>
+                &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; L'<a href="https://eseo.fr/je-m-oriente/mon-campus/angers/" target="_blank">École supérieure d'électronique de l'Ouest</a> est l'une des 204 écoles d'ingénieurs françaises accréditées au 1ᵉʳ septembre 2020 à délivrer un diplôme d'ingénieur<a href="javascript:alert(easter_egg_msg)" style="text-decoration: none;">.</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="education" class="education-section container py-5 hidden">
+        <h3 class="text-center">Statistiques des <span class="text-decoration-underline">lycées</span> d'Angers</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Lycée</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Note méthodologique</th>
+                    <th scope="col">Taux de réussite au Baccalauréat</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <th scope="row"><a href="https://gsc49.paysdelaloire.e-lyco.fr/" target="_blank" rel="noopener noreferrer">Sacré-Coeur La salle</a></th>
+                    <td>privé</td>
+                    <td>18,00/20</td>
+                    <td>100,0 %</td>
+                </tr>
+                <tr>
+                    <th scope="row"><a href="https://du-bellay.paysdelaloire.e-lyco.fr/" target="_blank" rel="noopener noreferrer">Joachim du Bellay</a></th>
+                    <td>public</td>
+                    <td>17,93/20</td>
+                    <td>96,8 %</td>
+                </tr>
+                <tr>
+                    <th scope="row"><a href="https://david-angers.paysdelaloire.e-lyco.fr/" target="_blank" rel="noopener noreferrer">David d'Angers</a></th>
+                    <td>public</td>
+                    <td>17,67/20</td>
+                    <td>96,7 %</td>
+                </tr>
+                <tr>
+                    <td scope="row"><a href="https://lyceesaintbenoit.paysdelaloire.e-lyco.fr/" target="_blank" rel="noopener noreferrer">Saint-Martin</a></td>
+                    <td>privé</td>
+                    <td>17,66/20</td>
+                    <td>98,6 %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="youtubers" class="youtubers-section pt-5">
+        <div class="container">
+            <h3 class="text-center">Angers, une ville de <span class="text-decoration-underline">YouTubers</span> *</h3>
+        </div>
+        <div id="youtubers-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="media/img/mastu.webp" class="d-block w-100" alt="Mastu">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Mastu</h5>
+                        <p>4 840 000 abonnés</p>
+                        <a href="https://www.youtube.com/channel/UCAhaFPP6v3WCfK5Tjao0B7A" target="_blank" rel="noopener noreferrer">Voir sa chaîne YouTube</a>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="media/img/joyca.jpg" class="d-block w-100" alt="JOYCA">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>JOYCA</h5>
+                        <p>5 190 000 abonnés</p>
+                        <a href="https://www.youtube.com/c/JOYCA-JORDAN" target="_blank" rel="noopener noreferrer">Voir sa chaîne YouTube</a>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="media/img/theodort.jpg" class="d-block w-100" alt="THEODORT">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>THEODORT</h5>
+                        <p>2 290 000 abonnés</p>
+                        <a href="https://www.youtube.com/channel/UC3TmGiSjX2Ix3qTjUnIIv4g" target="_blank" rel="noopener noreferrer">Voir la chaîne YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <p class="text-center text-muted">* YouTube est une marque déposée de Google, LLC.</p>
+    </div>
+
+    <div id="enterprises" class="container pt-5 hidden hidden-y">
+        <h3 class="text-center">Angers, une ville <span class="text-decoration-underline">économique</span></h3>
+    </div>
+
+    <div class="brands-section container d-flex justify-content-center gap-3 flex-wrap">
+        <div class="card">
+            <img src="media/img/Scania-Logo.png" class="card-img-top" alt="Scania France">
+            <div class="card-body">
+                <h5 class="card-title">Scania France</h5>
+                <p class="card-text">Cette société représente l’un des premiers constructeurs mondiaux de poids lourds et de bus ainsi que de moteurs industriels et marins.</p>
+                <strong>461 766 780 €</strong>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.scania.com/fr/fr/home/about-scania/newsroom/news/2022/7/scania-production-angers-30-ans-presence-francaise.html" rel="noopener noreferrer" target="_blank" class="btn btn-dark btn-more-info"><span>+ d'infos</span><span class="ms-2">>></span></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pomanjou-img-container">
+                <img src="media/img/Pomanjou-logo.jpg" class="card-img-top pomanjou-img" alt="Pomanjou">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Pomanjou</h5>
+                <p class="card-text">Pomanjou est basé à Ecouflant et constitue aujourd'hui le plus gros acteur privé dans la production de fruits et plus surtout de pommes.</p>
+                <strong>45 336 940 €</strong>
+            </div>
+            <div class="card-footer">
+                <a href="https://innatis.com/nos-societes/pomanjou-international/" rel="noopener noreferrer" target="_blank" class="btn btn-dark btn-more-info"><span>+ d'infos</span><span class="ms-2">>></span></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="media/img/Strego-logo.png" class="card-img-top" alt="Strego">
+            <div class="card-body">
+                <h5 class="card-title">Strego</h5>
+                <p class="card-text">Strego propose aux entreprises ses services en matière de comptabilité, gestion, audit, formation ou encore conseils en financement et en assurances.</p>
+                <strong>61 999 495 €</strong>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.bakertilly.fr/cabinets-d-expertise-comptable-en-france/expert-comptable-angers" rel="noopener noreferrer" target="_blank" class="btn btn-dark btn-more-info"><span>+ d'infos</span><span class="ms-2">>></span></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="media/img/Juret-logo.jpg" class="card-img-top" alt="Juret">
+            <div class="card-body">
+                <h5 class="card-title">Juret</h5>
+                <p class="card-text">Juret SAS a débuté son activité en juin 1991. Elle évolue dans le secteur des travaux de construction spécialisés et plus précisémment dans l'électricité générale.</p>
+                <strong>57 525 536 €</strong>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.societe.com/societe/juret-063200224.html" rel="noopener noreferrer" target="_blank" class="btn btn-dark btn-more-info"><span>+ d'infos</span><span class="ms-2">>></span></a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="media/img/Favera-logo.jpg" class="card-img-top favera-img" alt="Favera">
+            <div class="card-body">
+                <h5 class="card-title">Favera</h5>
+                <p class="card-text">Favera est l'un des <em>leaders</em> mondiaux de la sous-traitance dans l'industrie pharmaceutique. La société s'est tout d'abord spécialisée dans ce secteur avant de se lancer dans les cosmétiques.</p>
+                <strong>50 870 737 €</strong>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.fareva.com/fr/" rel="noopener noreferrer" target="_blank" class="btn btn-dark btn-more-info"><span>+ d'infos</span><span class="ms-2">>></span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-0 pb-3">
+        <p class="text-center text-muted">Chiffre d'affaires 2013</p>
+    </div>
+    
+    <div class="cta border-top mt-5 text-center pt-5 hidden hidden-y" style="--onscroll-animation-delay:1s;">
+        <h3>Angers, ville déjà choisie par plus de <span class="text-decoration-underline">422 654 personnes</span>.</h3>
+        <p class="py-4">Et pourquoi pas vous ?</p>
+    </div>
+
+    <footer class="text-center text-lg-start text-bg-theme text-muted">
+        <div class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <div class="me-5 d-none d-lg-block">
+                <span>Suivez-nous sur nos réseaux :</span>
+            </div>
+            <div>
+                <a href="https://www.facebook.com/ville.angers" target="_blank" title="Facebook" class="me-4 text-reset">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://twitter.com/angersagglo" target="_blank" title="Twitter" class="me-4 text-reset">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/ville_d_angers" target="_blank" title="Instagram" class="me-4 text-reset">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://vimeo.com/angers" target="_blank" title="Vimeo" class="me-4 text-reset">
+                    <i class="bi bi-vimeo"></i>
+                </a>
+                <a href="https://fr.pinterest.com/villeangers" target="_blank" title="Pinterest" class="me-4 text-reset">
+                    <i class="bi bi-pinterest"></i>
+                </a>
+                <a href="https://www.angers.fr/actualites-sorties/applis-mobiles-reseaux-sociaux-et-rss/index.html#c142141" target="_blank" title="Flux RSS" class="me-4 text-reset">
+                    <i class="bi bi-rss"></i>
+                </a>
+            </div>
+        </div>
+        <div>
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Mon quotidien
+                        </h6>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/mon-quotidien/gestion-des-dechets/index.html" target="_blank" class="">Déchets</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/mon-quotidien/eau-et-assainissement/index.html" target="_blank">Eau et assainissement</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/mon-quotidien/mobilites/index.html" target="_blank">Mobilité</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/mon-quotidien/logement/index.html" target="_blank">Logement</a>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            La Métropole
+                        </h6>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/la-metropole/le-conseil-communautaire-d-angers-loire-metropole/index.html" target="_blank">Conseil communautaire</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/la-metropole/les-competences-d-angers-loire-metropole/index.html" target="_blank">Compétences</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/la-metropole/les-communes-membres/index.html" target="_blank">Communes membres</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/la-metropole/marches-publics/index.html" target="_blank">Marchés publics</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Un territoire en mouvement
+                        </h6>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/un-territoire-en-mouvement/le-projet-de-territoire/index.html" target="_blank">Projet de territoire</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/un-territoire-en-mouvement/contrat-de-ville/index.html" target="_blank">Contrat de ville</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/un-territoire-en-mouvement/urbanisme/index.html" target="_blank">Urbanisme</a>
+                        </p>
+                        <p>
+                            <a href="https://www.angersloiremetropole.fr/un-territoire-en-mouvement/transition-ecologique-et-developpement-durable/index.html" target="_blank">Développement durable</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p style="color: #fff;"><i class="bi bi-house me-3"></i> Angers Loire Métropole</p>
+                        <p>
+                            <i class="bi bi-envelope me-3"></i>
+                            <a href="mailto:infocom@ville.angers.fr">infocom@ville.angers.fr</a>
+                        </p>
+                        <p><i class="bi bi-telephone me-3"></i> <a href="tel:+0241055000">02 41 05 50 00</a></p>
+                        <p><i class="bi bi-printer me-3"></i> <a href="tel:+0241053900" title="Fax">02 41 05 39 00</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between p-4">
+            <div>
+                <a href="https://www.angers.fr/services-demarches/contacter-la-mairie/index.html" target="_blank" class="mx-2">Contact</a>
+                <a href="https://www.angers.fr/mentions-legales/index.html" target="_blank" class="mx-2">Mentions légales</a>
+                <a href="https://www.angers.fr/accessibilite/index.html" target="_blank" class="mx-2">Accessibilité</a>
+                <a href="https://www.angers.fr/plan-de-site/index.html" target="_blank" class="mx-2">Plan de site</a>
+                <a href="https://presse.angers.fr/" target="_blank" class="mx-2">Presse</a>
+            </div>
+            <div style="margin-right: 50px;">
+                © 2022
+                <a class="text-reset fw-bold" href="https://www.angersloiremetropole.fr/">Angers Loire Métropole</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="assets/main.js"></script>
+    <script>
+        preloader();
+        // onscroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add("show");
+                }else{
+                    entry.target.classList.remove("show");
+                }
+            })
+        })
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((el) => observer.observe(el));
+        let easter_egg_msg = "Vous avez trouvé le point secret :)";
+    </script>
+</body>
+</html>

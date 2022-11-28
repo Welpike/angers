@@ -1,0 +1,407 @@
+/* MediaDev (Pascal LLEONART, Thomas HEMON & Melvyn JEAN-PIERRE) */
+
+/* font-family :
+ * 'Source Sans Pro' by Paul D. Hunt / Google Fonts
+ * SIL Open Font License, Version 1.1 
+ */
+
+*{
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-weight: 300;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    --onscroll-animation-delay: 1.5s;
+}
+
+.bg-theme{
+    background: #0a5896;
+    color: #fff;
+}
+
+.text-bg-theme{
+    color: #fff !important;
+    background-color: #0a5896 !important;
+}
+
+.text-theme{
+    color: #0a5896 !important;
+}
+
+.dropdown-menu-theme{
+    --bs-dropdown-color: #dee2e6;
+    --bs-dropdown-bg: #0a5896;
+    --bs-dropdown-border-color: var(--bs-border-color-translucent);
+    --bs-dropdown-box-shadow: ;
+    --bs-dropdown-link-color: #dee2e6;
+    --bs-dropdown-link-hover-color: #fff;
+    --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
+    --bs-dropdown-link-hover-bg: #0a5896;
+    --bs-dropdown-link-active-color: #fff;
+    --bs-dropdown-link-active-bg: #0d6efd;
+    --bs-dropdown-link-disabled-color: #adb5bd;
+    --bs-dropdown-header-color: #adb5bd;
+}
+
+.btn-more-info > span.ms-2{
+    transition: all 0.3s ease;
+}
+
+.btn-more-info:hover > span.ms-2{
+    margin-left: 10px !important;
+}
+
+.btn-close{
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* for stop scrolling - for body element */
+.stop-scrolling{
+    height: 100%;
+    overflow: hidden;
+}
+
+/* for scrolling animations */
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all var(--onscroll-animation-delay);
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.hidden-y{
+    transform: translateY(100%);
+}
+
+.show.hidden-y{
+    transform: translateY(0);
+}
+
+.hidden-x-right{
+    transform: translateX(100%);
+}
+
+.show.hidden-x-right{
+    transform: translateX(0);
+}
+
+@keyframes slidTop{
+    0%{
+        transform: translateY(50px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+noscript{
+    text-align: center;
+    z-index: 1000000;
+}
+
+#preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a5896;
+    z-index: 1040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#preloader h3{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#chat-box{
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+#chat-box-btn, #scroll-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#chat-box-container{
+    z-index: 1000;
+    max-width: 300px;
+    height: 450px;
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    --bs-card-border-color: #0a5896;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+#scroll-top{
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#scroll-top:hover{
+    color: #fff;
+}
+
+.carousel, .carousel-inner, .carousel-item{
+    height: 600px;
+    width: 100%;
+    color: #0a5896;
+    font-weight: 600;
+}
+
+.carousel .bi-chevron-left, .carousel .bi-chevron-right{
+    font-size: 32px;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+}
+
+/* using dark-mode-toggle - https://unpkg.com/browse/dark-mode-toggle@0.14.2/
+ * license : https://unpkg.com/browse/dark-mode-toggle@0.14.2/LICENSE
+ *
+ * this is a customisation of the default <dark-mode-toggle> tag
+ * 
+ * svg icons are from bootstrap-icons - https://icons.getbootstrap.com/
+ * license MIT
+ */
+#dark-mode-toggle-1{
+    --dark-mode-toggle-dark-icon: url("https://icons.getbootstrap.com/assets/icons/moon.svg");
+    --dark-mode-toggle-light-icon: url("https://icons.getbootstrap.com/assets/icons/brightness-high.svg");
+    --dark-mode-toggle-remember-icon-checked: url("https://icons.getbootstrap.com/assets/icons/check-square.svg");
+    --dark-mode-toggle-remember-icon-unchecked: url("https://icons.getbootstrap.com/assets/icons/square.svg");
+    --dark-mode-toggle-remember-font: 0.75rem 'Source Sans Pro';
+    --dark-mode-toggle-legend-font: bold 0.85rem 'Source Sans Pro';
+    --dark-mode-toggle-label-font: 0.85rem 'Source Sans Pro';
+    --dark-mode-toggle-color: var(--text-color);
+    --dark-mode-toggle-background-color: none;
+    --dark-mode-toggle-active-mode-background-color: var(--accent-color);
+    --dark-mode-toggle-remember-filter: invert(100%);
+}
+
+#top{
+    height: 56.25px;
+}
+
+footer a{
+    color: #fff !important;
+    text-decoration: none;
+    transition: all 1s ease;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+footer i{
+    color: #fff !important;
+}
+
+footer a:hover:has(i.bi){
+    text-decoration: none !important;
+    color: #1f1f1f !important;
+}
+
+#video-popup .modal-content, #open-source-popup .modal-content, #chat-box-container .card-body, #cookie-modal{
+    background:  var(--bs-body-bg);
+}
+
+#video-popup video{
+    width: 100%;
+}
+
+.cover{
+    height: 91vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 2rem rgba(30, 144, 255, 0.3);
+}
+
+.cover-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    animation: slidTop 4s;
+}
+
+.cover-inner{
+    text-align: center;
+    background: var(--bs-body-bg);
+}
+
+.cover h3, .cover p{
+    font-weight: 600;
+}
+
+.cover h3{
+    font-size: 32px;
+}
+
+.type-1 h3{
+    font-weight: 600;
+}
+
+.type-1 > div{
+    width: 50%;
+    padding: 40px;
+}
+
+.type-1-img{
+    position: relative;
+}
+
+.type-1 a:not(.btn), .type-1 p{
+    color: var(--bs-body-bg);
+}
+
+.type-1-img::before, .type-1-img::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    height: 100%;
+    width: 50px;
+    background: #0a5896;
+    transform: skewX(-3deg);
+    -webkit-transform: skewX(-3deg);
+    -moz-transform: skewX(-3deg);
+    -ms-transform: skewX(-3deg);
+}
+
+.sports-section .sport-item{
+    background-color: #0a5896;
+    color: #fff;
+    border: 10px solid var(--bs-body-bg);
+    border-radius: 14px !important;
+    transition: all 0.3s ease;
+}
+
+.sports-section .sport-item img{
+    border-radius: 6px;
+}
+
+.sport-item-inner{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-radius: 4px;
+    padding: 10px;
+    min-width: 100px !important;
+    display: none;
+}
+
+.sports-section .sport-item:hover{
+    transform: scale(95%);
+}
+
+.sports-section .sport-item:hover .sport-item-inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.sports-section .sport-item a{
+    color: var(--bs-body-color);
+}
+
+a.carousel-item{
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+.brands-section{
+    padding: 50px;
+}
+
+.brands-section .card{
+    padding: 10px;
+    width: 32%;
+    position: static;
+    background: var(--bs-body-bg);
+    transition: all 0.3s ease;
+}
+
+.brands-section .card:hover{
+    transform: scale(95%);
+}
+
+.brands-section .card-footer{
+    --bs-card-cap-bg: #fff;
+    background: var(--bs-body-bg);
+}
+
+.brands-section .card-footer a{
+    width: 100% !important;
+    text-align: center;
+}
+
+.brands-section .favera-img{
+    height: 200px;
+}
+
+.brands-section .pomanjou-img-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.brands-section .pomanjou-img{
+    height: 200px;
+    width: 200px;
+}
+
+.education-section a{
+    color: var(--bs-body-color);
+}
+
+.youtubers-section h5, p{
+    color: var(--bs-body-color);
+}
+
+.youtubers-section .carousel-caption{
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.cta{
+    box-shadow: 0rem -2rem 2rem rgba(0, 0, 0, 0.3);
+}
